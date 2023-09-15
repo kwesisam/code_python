@@ -1,0 +1,86 @@
+#declaring a variable
+    x = 8;
+    print(x); #printing out the variable
+    del x; #deleting the variable
+
+
+#type casting
+    str()
+    int()
+    float()
+
+    #receiving input
+    email = input("Enter your email")
+
+#foreach loop
+    import time
+
+    start_time = time.time();
+    for i in range(10):
+        for j in range(10):
+            print(0, end = " ")
+        print()
+
+    print(round(time.time()-start_time),2)
+
+
+    num_list = [33,42,5,66,77,22,16,79,36,62,78,43,88,39,53,67,89,11]
+
+    for x,num in enumerate(num_list):
+        if num == 36:
+            print('Number found at ', x)
+
+
+#list
+    list1 = [1,3,4,5,2]
+
+    print(list1[0])#print individual values of a list
+    print(*list1)#print all elements
+    print(list1, sep= " ")#print the list seperated by space
+    
+    #adding item into the list
+        list1.insert(len(list1),6)#to insert new element into the list
+        print(list1, sep=" ")
+        list1.append(7)#append 7 to the list
+        print(list1, sep=" ")
+        list1.extend([10,9,8])#extend the list
+        print(list1, sep=" ")
+
+    #removing item from the list
+        list1.pop(4)#remove the 5th element from the list
+        print(list1, sep=" ")
+        del list1[2]#del the 3th element from the list
+        print(list1, sep=" " )
+
+    #iteration through a list
+        for num, x in enumerate(list1):
+            print(x, num + 1)
+#tuple
+    my_tupble = (1,3,"sam")
+    print(my_tupble)#print the tuple
+    print(my_tupble.count("sam"))
+    print(type(my_tupble))
+    print(my_tupble.index(3))     
+
+#set
+    set_a = {1,2,3,4,5}
+
+    print(set_a)
+    set_a.add(6)#to add element to set
+    print(set_a)
+    set_a.remove(2)
+    print(set_a)
+
+    set_b = {4,3,5,7,6}
+    print(set_a.union(set_b))#union operator on the two set
+
+#dictionaries
+
+    simple_dict = {1:"Coffe", 2:"Tea", 3:"Juice"}
+    print(simple_dict[1])
+    simple_dict[3] = "Candy"#chanign the element of the dictionary
+    print(simple_dict[3])
+    del simple_dict[2]#delecting the element 2
+
+    for x in simple_dict:
+        print(x)

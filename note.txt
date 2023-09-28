@@ -84,3 +84,151 @@
 
     for x in simple_dict:
         print(x)
+#args and kwargs
+
+    #args is used when you don't know the number of arguments
+    def sum_of (*args):
+        sum = 0
+        for x in args:
+            sum += x
+        return sum
+
+    print(sum_of(3,4,2))
+
+
+    def mul_of(**kwargs):
+        mul = 1
+        for v, k in kwargs.items():
+            mul *= k
+
+        return mul
+
+    print(mul_of(coffee = 23, tea= 77))
+
+#erros and exceptions
+    def divide_by(a, b):
+        try:
+            return 40 / 2
+        except Exception as e:
+            print("You can not divide by zero", e)
+
+    print(divide_by(40,2))
+
+#file handling in python
+    #opening a file
+        file = open("text.txt", mode="r")
+
+        data = file.readline()
+
+        print(data)
+
+        file.close()
+
+        # or 
+
+        with open("text.txt",mode="r") as a:
+            read = a.readline()
+
+            print(read)
+
+    #creating a file
+
+        try:
+            #this will cause an error
+            with open("new file.txt", mode="w") as file:
+                #file.write("New file in the building")
+
+                #thi write into the file as list
+                file.writelines(["\nNew file in the buildinnng","\nHello what popping"])
+        except Exception as e:
+            print("ERROR", e)
+    
+    #reading a file
+        try:
+            with open("text.txt","r") as file:
+                #print(file.read())#print the whole content of the file
+                #print(file.read(20))#this print out the first twenty characters
+                #print(file.readline())#this read only the first line 
+
+                #this out the content as a list
+                data = file.readlines()
+                for x in data:
+                    print(data)
+        except Exception as e:
+            print("ERROR: ", e)
+
+
+#string reversal
+    str = "goat"
+
+    rev_str = str[::-1]
+    print(rev_str)
+
+#map and filter
+    menu = ["espresson","mocha","latte","cappuccino","cortado","americano"]
+
+    def find_coffee(coffee):
+        if coffee[0] == 'c':
+            return coffee
+        
+    map_coffee = map(find_coffee,menu)
+    for i in map_coffee:
+        print(i)
+
+    filter_coffee = filter(find_coffee, menu)
+
+    for g in filter_coffee:
+        print(g)
+#class and objects
+class House:
+    num_rooms = 5
+    bathrooms = 2
+
+    def cost_evaluation(self):
+        print(self.num_rooms)
+        pass
+
+house = House()#creating an object
+house.cost_evaluation()#calling a method of the class
+print(house.bathrooms)
+print(House.bathrooms)
+
+class Recipe():
+    def __init__(self, dish, items, time) -> None:
+        self.dish = dish
+        self.items = items
+        self.time = time
+
+    def content(self):
+        print("The " + self.dish + " has " + str(self.items) + \
+              " and takes " + str(self.time) + " min to prepare")
+
+    pizza = Recipe("Pizza",["cheese","bread","tomato"],45)
+    pasta = Recipe("Pasta",["penne","sauce"],55)
+    print(pizza.items)
+    print(pasta.items)
+    pizza.content()
+
+    #abstract class
+    from abc import ABC, abstractmethod
+
+    class Employee(ABC):
+        @abstractmethod
+        def donote(self):
+            pass
+
+    class Donation(Employee):
+        def donote(self):
+            a = input("How much would you like to donte: ")
+            return a
+
+    amount = []
+    john = Donation()
+    j = john.donote()
+    amount.append(j)
+
+    peter = Donation()
+    p = peter.donote()
+    amount.append(p)
+
+    print(amount)
